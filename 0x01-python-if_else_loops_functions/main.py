@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-uppercase = __import__('8-uppercase').uppercase
+fizzbuzz = __import__('12-fizzbuzz').fizzbuzz
 
-uppercase("holberton")
-uppercase("Holberton School 98 Battery street")
+fizzbuzz()
+print("")
