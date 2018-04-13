@@ -10,6 +10,6 @@ def main():
         exit()
     print(argc - 1, "arguments:")
     for i in range(1, argc):
-        print(argv[i])
+        print("{:d}:".format(i), argv[i])
 if __name__ == "__main__":
     main()
