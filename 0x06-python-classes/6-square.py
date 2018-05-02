@@ -16,10 +16,10 @@ def errorCheckTuple(value):
 class Square:
 
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self._position = position
         errorCheck(size)
         errorCheckTuple(position)
+        self.__size = size
+        self._position = position
 
     @property
     def size(self):
