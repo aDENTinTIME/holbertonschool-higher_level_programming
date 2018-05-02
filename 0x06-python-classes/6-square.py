@@ -1,0 +1,53 @@
+#!/usr/bin/python3
+def errorCheck(size):
+    if not isinstance(size, int):
+        raise TypeError("size must be an integer")
+    if size < 0:
+        raise ValueError("size must be >= 0")
+
+
+def errorCheckTuple(value):
+    if value[0] < 0 or value[1] < 0:
+        raise TypeError("position must be a tuple of 2 positive integers")
+
+
+class Square:
+
+    def __init__(self, size=0, position=(0, 0)):
+        self.__size = size
+        self._position = position
+        errorCheck(size)
+        errorCheckTuple(position)
+
+    @property
+    def size(self):
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        errorCheck(value)
+        self.__size = value
+
+    @property
+    def position(self):
+        return self._position
+
+    @position.setter
+    def position(self, value):
+        errorCheckTuple(value)
+        self._position = value
+
+    def area(self):
+        return self.__size ** 2
+
+    def my_print(self):
+        for p in range(self._position[1]):
+            print()
+        for i in range(self.__size):
+            for p in range(self._position[0]):
+                print(" ", end="")
+            for n in range(self.__size):
+                print("#", end="")
+            print()
+        if not self.__size:
+            print()
