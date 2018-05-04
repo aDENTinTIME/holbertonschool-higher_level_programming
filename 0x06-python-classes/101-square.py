@@ -36,7 +36,8 @@ class Square:
                 print(" ", end="")
             for width in range(self.__size):
                 print("#", end="")
-            print()
+            if height < self.__size - 1:
+                print()
         return ""
 
     @property
