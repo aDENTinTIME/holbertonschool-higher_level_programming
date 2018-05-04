@@ -27,8 +27,7 @@ class Square:
 
     def __str__(self):
         if not self.__size:
-            print()
-            return
+            return ""
         for y in range(self._position[1]):
             print()
         for height in range(self.__size):
