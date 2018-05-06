@@ -27,9 +27,9 @@ def matrix_divided(matrix, div):
     Notes:
         Instead of round, I came up with this math: int(t/div*100)/100)
     """
+    matrixError = "matrix must be a matrix (list of lists) of integers/floats"
     if not isinstance(matrix, list):
-        raise TypeError(
-            "matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError(matrixError)
     if not isinstance(div, int) and not isinstance(div, float):
         raise TypeError("div must be a number")
     if div is 0:
@@ -40,16 +40,12 @@ def matrix_divided(matrix, div):
     for i in matrix:
         hold = []
         if not isinstance(i, list):
-            raise TypeError(
-                "matrix must be a matrix (list of lists) of"
-                + " integers/floats")
+            raise TypeError(matrixError)
         if length != len(i):
             raise TypeError("Each row of the matrix must have the same size")
         for t in i:
             if not isinstance(t, int) and not isinstance(t, float):
-                raise TypeError(
-                    "matrix must be a matrix (list of lists) of"
-                    + " integers/floats")
+                raise TypeError(matrixError)
             hold.append(round(t/div, 2))
         new_matrix.append(hold)
     return new_matrix
