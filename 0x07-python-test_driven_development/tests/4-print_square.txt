@@ -1,0 +1,54 @@
+>>> print_square = __import__('4-print_square').print_square
+>>> from subprocess import call
+>>> try:
+...     call(["pep8", "4-print_square.py"])
+... except FileNotFoundError:
+...     print(0)
+0
+
+>>> print_square(2)
+##
+##
+
+>>> print_square(11)
+###########
+###########
+###########
+###########
+###########
+###########
+###########
+###########
+###########
+###########
+###########
+
+>>> print_square(0)
+
+
+>>> print_square(1)
+#
+
+>>> try:
+...     print_square("soda")
+... except TypeError as e:
+...     print(e)
+size must be an integer
+
+>>> try:
+...     print_square(38.2)
+... except TypeError as e:
+...     print(e)
+size must be an integer
+
+>>> try:
+...     print_square(-98.7)
+... except TypeError as e:
+...     print(e)
+size must be an integer
+
+>>> try:
+...     print_square(-2)
+... except ValueError as e:
+...     print(e)
+size must be >= 0

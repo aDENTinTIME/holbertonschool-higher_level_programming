@@ -1,0 +1,34 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> from subprocess import call
+>>> try:
+...     call(["pep8", "3-say_my_name.py"])
+... except FileNotFoundError:
+...     print(0)
+0
+
+>>> say_my_name("Arik", "Rosenthal")
+My name is Arik Rosenthal
+
+>>> say_my_name("Arik", "")
+My name is Arik 
+
+>>> say_my_name("", "")
+My name is  
+
+>>> say_my_name("", "Rosenthal")
+My name is  Rosenthal
+
+>>> say_my_name("Arik")
+My name is Arik 
+
+>>> try:
+...     say_my_name(None, "Rosenthal")
+... except TypeError as e:
+...     print(e)
+first_name must be a string
+
+>>> try:
+...     say_my_name("Arik", 42)
+... except TypeError as e:
+...     print(e)
+last_name must be a string
