@@ -1,14 +1,26 @@
 #!/usr/bin/python3
-"""0-add_integer
-Attributes:
-    a: First number, input by user.
-    b: Second number, input by user, default to 98 if not provided.
+"""
+Function(s):
+    add_integer: Adds two numbers.
 """
 
 
 def add_integer(a, b=98):
-    """add_integer
-    Adds two numbers together.
+    """
+    Recieves two values, checks if they're numbers, casts them as ints
+    and returns the result of their addition. If either value is not
+    a number, a TypeError is raised.
+
+    Args:
+        a: First number, input by user.
+        b: Second number, input by user, default to 98 if not provided.
+
+    Returns:
+        int: Result of addition of a and b.
+
+    Raises:
+        TypeError: In the event of either variable
+            not being an int or float.
     """
     if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")

@@ -1,4 +1,16 @@
 >>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> from subprocess import call
+>>> try:
+...     call(["pep8", "5-text_indentation.py"])
+... except FileNotFoundError:
+...     print(0)
+0
+
+>>> try:
+...     text_indentation(18)
+... except TypeError as e:
+...     print(e)
+text must be a string
 
 >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
 ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
@@ -36,3 +48,101 @@ Sin aliud quid voles, postea.
 Quae animi affectio suum cuique tribuens atque hanc, quam dico.
 <BLANKLINE>
 Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+>>> text_indentation("Hello.  World?sounds  cool  :dude")
+Hello.
+<BLANKLINE>
+World?
+<BLANKLINE>
+sounds  cool:
+<BLANKLINE>
+dude
+
+>>> text_indentation("Hello...  World?:?sounds  cool  :dude")
+Hello.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+World?
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+sounds  cool:
+<BLANKLINE>
+dude
+
+>>> text_indentation("::?:?:...??::??...?:?:?:??::")
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+
+>>> text_indentation("       hi          there... I've been waiting . . .")
+hi          there.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+I've been waiting.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>

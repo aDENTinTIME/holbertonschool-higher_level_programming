@@ -1,14 +1,31 @@
 #!/usr/bin/python3
-"""2-matrix_divided
-Attributes:
-    matrix: Matrix of numbers.
-    div: Number to divide matrix by.
+"""
+Function(s):
+    matrix_divided: Divides the contents of a matrix by div.
 """
 
 
 def matrix_divided(matrix, div):
-    """matrix_divided
-    Divides the contents of a matrix by div.
+    """
+    Recieves two values, checks if div is a number, and matrix only contains
+    number, then casts them as ints. Then all the the elements of the matrix
+    are divide by div, and a new matrix containing the result, rounded to
+    two decimal places, is returned.
+
+    Args:
+        matrix: Matrix of values.
+        div: Number to divide each item in matrix by.
+
+    Returns:
+        list: New matrix, each element divided by zero.
+
+    Raises:
+        TypeError: In the event of either variable
+            not being or containing an int or float.
+        ZeroDivisionError: In the event of an attempted division by zero.
+
+    Notes:
+        Instead of round, I came up with this math: int(t/div*100)/100)
     """
     if not isinstance(div, int) and not isinstance(div, float):
         raise TypeError("div must be a number")

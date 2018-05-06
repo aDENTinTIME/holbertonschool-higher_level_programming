@@ -1,14 +1,21 @@
 #!/usr/bin/python3
-"""3-say_my_name
-Attributes:
-    first_name:
-    last_name:
+"""
+Function(s):
+    say_my_name: Says the given name.
 """
 
 
 def say_my_name(first_name, last_name=""):
-    """say_my_name
-    Says my name.
+    """
+    Recieves two values, checks if they're both strings, raises a TypeError
+    if not. They are both then printed, prefaced with `My name is`.
+
+    Args:
+        first_name: First name provided.
+        last_name: Last name provided, default to empty string.
+
+    Raises:
+        TypeError: In the event of either variable not being a string.
     """
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
