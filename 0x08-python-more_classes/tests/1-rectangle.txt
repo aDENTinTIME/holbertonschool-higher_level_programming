@@ -1,0 +1,47 @@
+>>> Rectangle = __import__('1-rectangle').Rectangle
+
+
+>>> my_rectangle = Rectangle(2, 4)
+
+
+>>> my_rectangle.width
+2
+
+>>> my_rectangle.height
+4
+
+>>> my_rectangle.width = 10
+
+
+>>> my_rectangle.height = 3
+
+
+>>> my_rectangle.width
+10
+
+>>> my_rectangle.height
+3
+
+>>> try:
+...     my_rectangle.width = "a"
+... except TypeError as e:
+...     print(e)
+width must be an integer
+
+>>> try:
+...     my_rectangle.height = "b"
+... except TypeError as e:
+...     print(e)
+height must be an integer
+
+>>> try:
+...     my_rectangle.width = -5
+... except ValueError as e:
+...     print(e)
+width must be >= 0
+
+>>> try:
+...     my_rectangle.height = -3
+... except ValueError as e:
+...     print(e)
+height must be >= 0
