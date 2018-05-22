@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+"""Square class
+"""
+
+
+from models.rectangle import Rectangle
+
+
+class Square(Rectangle):
+    """
+    class Square inherits from class Rectangle.
+    A square object that can create a sqare of any size.
+    It can return it's area or print a 2D representation
+    of itself at a given offset.
+
+
+    Args:
+        size: Length of square's edge.
+        x: Horizontal offset to print at.
+        y: Vertical offset to print at.
+        id: This is handled by the super-class Base.
+            The desired ID of an object's instance, or the next available ID.
+    """
+    def __init__(self, size, x=0, y=0, id=None):
+        super().__init__(size, size, x, y, id)
+
+    def __str__(self):
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width)
+
+    def update(self, *args, **kwargs):
+        atts = ["id", "size", "x", "y"]
+        [setattr(self, a, b) for a, b in zip(atts, args)]
+        [setattr(self, a, b) for a, b in kwargs.items()]
+
+    @property
+    def size(self):
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        self.width = value
+        self.height = value
