@@ -41,3 +41,15 @@ class Square(Rectangle):
     def size(self, value):
         self.width = value
         self.height = value
+
+    def to_dictionary(self):
+        hold = {}
+        for key, val in self.__dict__.items():
+            if key.find("__") != -1:
+                key = key[key.find("__")+2:]
+            if key == "width":
+                key = "size"
+            elif key == "height":
+                continue
+            hold[key] = val
+        return hold

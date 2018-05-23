@@ -98,3 +98,16 @@ class Rectangle(Base):
     def display(self):
         [print() for a in range(self.y)]
         [print("" * self.x, "#" * self.width) for x in range(self.height)]
+
+    def to_dictionary(self):
+        """Alternate non-one line solution
+        hold = {}
+        for key, val in self.__dict__.items():
+            if key.find("__") != -1:
+                key = key[key.find("__")+2:]
+            hold[key] = val
+        return hold
+        """
+        return dict((key[key.find("__")+2:]
+                    if key.find("__") != -1 else key, val)
+                    for key, val in self.__dict__.items())
