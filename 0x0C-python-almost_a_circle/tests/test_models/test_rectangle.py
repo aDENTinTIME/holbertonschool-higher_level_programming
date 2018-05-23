@@ -10,7 +10,7 @@ class TestRectangleClass(unittest.TestCase):
     """Checks for correct output during many edge cases.
     """
 
-    def test_1_simple(self):
+    def test_simple(self):
         """Simple tests that the basic program must pass
         """
         Base.reset()
@@ -23,7 +23,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r3.id, 44)
         self.assertEqual(r4.id, 3)
 
-    def test_2_adv(self):
+    def test_adv(self):
         """Edge cases that must be accounted for
         """
         Base.reset()
@@ -33,6 +33,26 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r5.id, "string ID")
         self.assertEqual(r6.id, (1, 2))
         self.assertEqual(r7.id, 1)
+
+    def test_wrong_type(self):
+        """Checks for wrong type
+        """
+        Base.reset()
+        with self.assertRaises(TypeError):
+            r1 = Rectangle('i', 2)
+            r2 = Rectangle(2, 'i')
+            r3 = Rectangle(2, 2, 'i')
+            r4 = Rectangle(2, 2, 2, 'i')
+
+    def test_wrong_value(self):
+        """Checks for wrong value
+        """
+        Base.reset()
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(-5, 2)
+            r2 = Rectangle(2, -3)
+            r3 = Rectangle(2, 2, -3)
+            r4 = Rectangle(2, 2, 2, -3)
 
 
 if __name__ == "__main__":

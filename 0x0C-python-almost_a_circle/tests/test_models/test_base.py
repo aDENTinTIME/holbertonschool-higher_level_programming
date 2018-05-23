@@ -9,7 +9,7 @@ class TestBaseClass(unittest.TestCase):
     """Checks for correct output during many edge cases.
     """
 
-    def test_1_simple(self):
+    def test_simple(self):
         """Simple tests that the basic program must pass
         """
         Base.reset()
@@ -22,7 +22,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(b3.id, 33)
         self.assertEqual(b4.id, 3)
 
-    def test_2_adv(self):
+    def test_adv(self):
         """Edge cases that must be accounted for
         """
         Base.reset()

@@ -11,7 +11,7 @@ class TestSquareClass(unittest.TestCase):
     """Checks for correct output during many edge cases.
     """
 
-    def test_1_simple(self):
+    def test_simple(self):
         """Simple tests that the basic program must pass
         """
         Base.reset()
@@ -24,7 +24,7 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(s3.id, 44)
         self.assertEqual(s4.id, 3)
 
-    def test_2_adv(self):
+    def test_adv(self):
         """Edge cases that must be accounted for
         """
         Base.reset()
@@ -34,6 +34,24 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(s5.id, "string ID")
         self.assertEqual(s6.id, (1, 2))
         self.assertEqual(s7.id, 1)
+
+    def test_wrong_type(self):
+        """Checks for wrong type
+        """
+        Base.reset()
+        with self.assertRaises(TypeError):
+            s1 = Square('i', 2)
+            s2 = Square(2, 'i')
+            s3 = Square(2, 2, 'i')
+
+    def test_wrong_value(self):
+        """Checks for wrong value
+        """
+        Base.reset()
+        with self.assertRaises(ValueError):
+            s1 = Square(-5, 2)
+            s2 = Square(2, -3)
+            s3 = Square(2, 2, -3)
 
 
 if __name__ == "__main__":
