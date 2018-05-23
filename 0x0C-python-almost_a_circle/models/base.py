@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """Base class
 """
-
-
 import json
 
 
@@ -19,6 +17,8 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Called when a new instance of this class is created.
+        """
         if id is not None:
             self.id = id
         else:
@@ -27,6 +27,19 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """Converts a given list of dictionaries to a json string.
+        """
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Saves a list of objects to a json formatted file.
+        """
+        with open(cls.__name__+'.json', 'w', encoding='utf-8') as f:
+            new = "["
+            for x in list_objs:
+                new += (cls.to_json_string(cls.to_dictionary(x)))
+            new += "]\n"
+            f.write(new.replace('}{', '}, {'))

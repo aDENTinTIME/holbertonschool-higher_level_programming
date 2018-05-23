@@ -1,16 +1,17 @@
 #!/usr/bin/python3
 """Unittest for Base
 """
-
-
 import unittest
 from models.base import Base
+
 
 class TestBaseClass(unittest.TestCase):
     """Checks for correct output during many edge cases.
     """
 
     def test_1_simple(self):
+        """Simple tests that the basic program must pass
+        """
         b1 = Base()
         b2 = Base()
         b3 = Base(33)
@@ -21,6 +22,8 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(b4.id, 3)
 
     def test_2_adv(self):
+        """Edge cases that must be accounted for
+        """
         b5 = Base("string ID")
         b6 = Base((1, 2))
         b7 = Base(None)
