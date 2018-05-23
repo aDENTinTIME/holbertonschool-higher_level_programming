@@ -41,5 +41,9 @@ class Base:
             new = "["
             for x in list_objs:
                 new += (cls.to_json_string(cls.to_dictionary(x)))
-            new += "]\n"
+            new += "]"
             f.write(new.replace('}{', '}, {'))
+
+    @classmethod
+    def reset(cls):
+        cls.__nb_objects = 0
