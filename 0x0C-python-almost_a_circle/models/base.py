@@ -38,6 +38,9 @@ class Base:
         """Saves a list of objects to a json formatted file.
         """
         with open(cls.__name__+'.json', 'w', encoding='utf-8') as f:
+            if list_objs is None:
+                f.write("[]")
+                return
             new = "["
             for x in list_objs:
                 new += (cls.to_json_string(cls.to_dictionary(x)))
