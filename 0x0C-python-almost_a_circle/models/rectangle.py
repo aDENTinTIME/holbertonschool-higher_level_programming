@@ -121,7 +121,8 @@ class Rectangle(Base):
         """Prints a 2D representation of the class instance.
         """
         [print() for a in range(self.y)]
-        [print("" * self.x, "#" * self.width) for x in range(self.height)]
+        [print("{}{}".format(
+            " " * self.x, "#" * self.width)) for x in range(self.height)]
 
     def to_dictionary(self):
         """
