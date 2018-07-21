@@ -18,10 +18,10 @@ def main():
     cur.execute("SELECT * FROM states WHERE name='{}'".
                 format(searched))
 
-    print(cur.fetchall()[0])
+    rows = cur.fetchall()
 
-    db.close()
-    cur.close()
+    for x in rows:
+        print(x)
 
 if __name__ == "__main__":
     main()
