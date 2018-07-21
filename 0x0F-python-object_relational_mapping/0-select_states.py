@@ -6,7 +6,7 @@ from sys import argv
 
 
 def main():
-    """Lists all states from a database."""
+    """Lists all states in a database."""
     username = argv[1]
     password = argv[2]
     database = argv[3]
