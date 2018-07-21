@@ -23,7 +23,7 @@ def main():
 
     session = Session(engine)
 
-    add_me = State(name = new_state)
+    add_me = State(name=new_state)
 
     session.add(add_me)
     session.commit()
