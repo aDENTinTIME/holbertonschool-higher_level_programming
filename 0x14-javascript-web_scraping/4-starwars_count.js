@@ -13,7 +13,7 @@ request.get(url, (error, response, body) => {
       for (const key2 in JSON.parse(body).results[key]) {
         if (key2 === 'characters') {
           for (const key3 in JSON.parse(body).results[key][key2]) {
-            if (JSON.parse(body).results[key][key2][key3] === 'https://swapi.co/api/people/18/') {
+            if (JSON.parse(body).results[key][key2][key3].includes('18')) {
               count++;
               // console.log(JSON.parse(body).results[key][key2][key3]);
             }
