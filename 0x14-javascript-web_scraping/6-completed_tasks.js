@@ -2,7 +2,6 @@
 
 const request = require('request');
 const url = process.argv[2];
-let count = 0;
 let dict = {};
 
 request.get(url, (error, response, body) => {
@@ -10,11 +9,10 @@ request.get(url, (error, response, body) => {
   else {
     for (const key in JSON.parse(body)) {
       let uid = JSON.parse(body)[key]['userId'];
-      if (uid && JSON.parse(body)[key]['completed'] == true) {
-        if (dict[uid] == undefined) {
+      if (uid && JSON.parse(body)[key]['completed'] === true) {
+        if (dict[uid] === undefined) {
           dict[uid] = 1;
-        }
-        else {
+        } else {
           dict[uid] += 1;
         }
       }
