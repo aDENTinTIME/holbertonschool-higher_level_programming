@@ -3,11 +3,11 @@
 window.onload = () => {
   document.querySelector('DIV#add_item').onclick = () => {
     $('UL.my_list').append('<li>Item</li>');
-  }
+  };
   document.querySelector('DIV#remove_item').onclick = () => {
     $('UL.my_list > li:first').remove();
-  }
+  };
   document.querySelector('DIV#clear_list').onclick = () => {
     $('UL.my_list').empty();
-  }
+  };
 };
